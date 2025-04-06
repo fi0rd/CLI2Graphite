@@ -1,0 +1,35 @@
+global:
+    fetch_interval: 45
+    push_interval: 90
+    sleep_interval: 15
+    logging: INFO
+  
+cmdb:
+    filename:
+    fresh_interval_min: 1440
+  
+graphite:
+    mode: dev
+    url: 
+    port: 2003
+  
+  
+schemas:
+    - spine_and_leaf:
+        os: junos
+        username: 
+        password: 
+        query: "WHERE (HostName LIKE '%spine%' OR HostName LIKE '%leaf%')"
+    - bct:
+        os: junos
+        username: 
+        password: 
+        query: "WHERE HostName LIKE ''"
+    - eci:
+        os: eci
+        username: 
+        password: 
+        query: "WHERE HostName LIKE ''"
+        fetch_interval: 270
+        push_interval: 300
+
